@@ -5,19 +5,23 @@ module.exports = {
     node: true
   },
   extends: ['plugin:vue/essential', 'airbnb-base', 'plugin:prettier/recommended'],
-  // settings: {
-  //   'import/resolver': {
-  //     alias: {
-  //       map: [['@', './src']],
-  //       extensions: ['.js', '.jsx', '.ts', '.tsx']
-  //     }
-  //   }
-  // },
+  settings: {
+    'import/resolver': {
+      typescript: {
+        project: `${__dirname}/tsconfig.json`
+      }
+    }
+  },
   parserOptions: {
     ecmaVersion: 'latest',
     parser: '@typescript-eslint/parser',
     sourceType: 'module'
   },
   plugins: ['vue', '@typescript-eslint'],
-  rules: {}
+  rules: {
+    'import/no-unresolved': 'off',
+    'import/extensions': 'off',
+    'import/no-absolute-path': 'off',
+    'import/no-extraneous-dependencies': 'off'
+  }
 }
